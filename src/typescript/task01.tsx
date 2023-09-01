@@ -33,8 +33,6 @@ type NewType = ReturnType<typeof getData>;
 //     name: string;
 // }
 
-// ***************************************************************************
-
 // Omit Исключает указанные поля из типа/интерфейса
 // type person = { name: number; age: number; weight: number; height: number };
 interface person {
@@ -44,3 +42,28 @@ interface person {
   height: number;
 }
 type personNarr = Omit<person, "weight" | "height">;
+
+// ***************************************************************************
+
+type person_1 = {
+  name: string;
+  age: number;
+};
+
+type person_2 = Partial<person_1>;
+//name?: string | undefined
+//age?:  string | undefined
+
+// ***************************************************************************
+
+class Article {
+  constructor(id: number, content: string) {}
+}
+
+const article01 = new Article(1, "text");
+
+console.log(article01);
+
+// https://www.youtube.com/watch?v=Fgcu_iB2X04&t=1186s
+
+// ***************************************************************************
