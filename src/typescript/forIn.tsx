@@ -1,4 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // цикл for...in
+
+import { useMemo } from "react";
 
 interface IDropDownItems {
   QE?: string[];
@@ -20,4 +23,4 @@ const dropDownItems = useMemo(() => {
 
 const roles = ["QE", "SQM"] as const;
 
-type IDropDownItems = Partial<Record<(typeof roles)[number], string[]>>;
+type RDropDownItems = Partial<Record<(typeof roles)[number], string[]>>;
