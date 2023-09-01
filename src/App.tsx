@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Buttons from "./buttonsArr";
+import Buttons from "./ButtonsArr/buttonsArr";
 
 const App = () => {
   // const person = {
