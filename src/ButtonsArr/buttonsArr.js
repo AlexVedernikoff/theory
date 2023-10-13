@@ -1,24 +1,24 @@
 import { useState } from "react";
 
 export default function Buttons() {
-  const [text, setText] = useState([]);
+  const [labels, setLabels] = useState([]);
 
   const addButton = () => {
-    const id = text.length ? Math.max(...text) + 1 : 0;
-    setText((prev) => {
+    const id = labels.length ? Math.max(...labels) + 1 : 0;
+    setLabels((prev) => {
       return [...prev, id];
     });
   };
 
   const removeButton = (id) => {
     // const idx = text.findIndex((el) => el === id);
-    const idx = text.indexOf(id);
-    setText((prev) => {
-      return [...prev.slice(0, idx), ...prev.slice(idx, prev.length - 1)];
+    const idx = labels.indexOf(id);
+    setLabels((prev) => {
+      return [...prev.slice(0, idx), ...prev.slice(idx + 1)];
     });
   };
 
-  const buttons = text.map((el) => (
+  const buttons = labels.map((el) => (
     <button key={el} onClick={() => removeButton(el)}>
       {el}
     </button>
@@ -32,3 +32,9 @@ export default function Buttons() {
     </>
   );
 }
+
+// Array.find((el) => el === id) возвращает первый ЭЛЕМЕНТ, для которого callback функция вернёт true, или undefined, если такого элемента не найдено.
+
+// Array.findIndex((el) => el === id) возвращает ИНДЕКС первого элемента, для которого callback функция вернёт true, или -1, если такого элемента не найдено.
+
+// Array.indexOf(searchElement, fromIndex?) возвращает ИНДЕКС первого элемента, совпадающего с searchElement, или -1, если такого элемента не найдено.
