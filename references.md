@@ -2,6 +2,12 @@
 
 https://stackoverflow.com/questions/36088655/accessing-a-css-custom-property-aka-css-variable-through-javascript
 
-# контекст this стрелочные функции
+# Теория для подготовки к собеседованиям
+
+## контекст this стрелочные функции
 
 https://habr.com/ru/companies/otus/articles/719138/
+
+# Пример анимации цветные кубики
+
+https://dev.to/romaintrotard/let-s-do-some-animations-in-native-javascript-23jl
