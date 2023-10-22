@@ -4,8 +4,9 @@ import Buttons from "./ButtonsArr/buttonsArr";
 import { Salary } from "./Salary/salary";
 import { CounterEffector } from "./Effector/counterEffector";
 import { getValue } from "./typescript/temp01";
-import { unique } from "./interviewTasks/polif_findUnique";
+import { ArrayFindUniquePolyfill } from "./interviewTasks/array_findUnique()";
 import { ArrayMyFlatPolyfill } from "./Полифилы/array_flat()";
+import { TestTypescript } from "./typescript/testTypescript";
 
 const App = () => {
   // const person = {
@@ -49,20 +50,21 @@ const App = () => {
     return (res as Response).content !== undefined || "content" in res;
   }
 
-  const user = {
-    name: "Ada",
-    age: 16,
-  };
+  // const user = {
+  //   name: "Ada",
+  //   age: 16,
+  // };
 
-  console.log(getValue(user, "name"));
+  // console.log(getValue(user, "name"));
 
   return (
     <div className="App">
       <Buttons />
       {/* <CounterEffector /> */}
       <Salary />
-      {/* {unique()} */}
+      {ArrayFindUniquePolyfill()}
       {ArrayMyFlatPolyfill()}
+      {TestTypescript()}
     </div>
   );
 };

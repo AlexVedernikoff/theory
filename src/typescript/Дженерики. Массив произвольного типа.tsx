@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // Дженерики. Массив произвольного типа.
 
 type ArrayOf<T> = T[];
