@@ -21,7 +21,7 @@ export const TestTypescript = () => {
   }
 
   console.log("value of object[key] = ", getValue(developer, "name"));
-  console.log("value of object[key] = ", getProperty(developer, ["skills", 1]));
+  console.log("value of object[key] = ", getProperty(developer, "skills"));
 };
 
 // можно записать проще

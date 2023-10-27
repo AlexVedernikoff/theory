@@ -7,6 +7,8 @@ import { getValue } from "./typescript/temp01";
 import { ArrayFindUniquePolyfill } from "./interviewTasks/array_findUnique()";
 import { ArrayMyFlatPolyfill } from "./Полифилы/array_flat()";
 import { TestTypescript } from "./typescript/testTypescript";
+import { TestTypescript01 } from "./typescript/testTypescript01";
+import { Grid, Row } from "./React children";
 
 const App = () => {
   // const person = {
@@ -65,6 +67,12 @@ const App = () => {
       {ArrayFindUniquePolyfill()}
       {ArrayMyFlatPolyfill()}
       {TestTypescript()}
+      {TestTypescript01()}
+      <Grid>
+        <Row color="green" render={true} />
+        <Row color="blue" render={true} />
+        <Row color="tomato" render={false} />
+      </Grid>
     </div>
   );
 };
