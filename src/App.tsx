@@ -3,12 +3,13 @@ import "./App.css";
 import Buttons from "./ButtonsArr/buttonsArr";
 import { Salary } from "./Salary/salary";
 import { CounterEffector } from "./Effector/counterEffector";
-import { getValue } from "./typescript/temp01";
+import { getValue } from "./typescript/keyof typeof";
 import { ArrayFindUniquePolyfill } from "./interviewTasks/array_findUnique()";
 import { ArrayMyFlatPolyfill } from "./Полифилы/array_flat()";
 import { TestTypescript } from "./typescript/testTypescript";
 import { TestTypescript01 } from "./typescript/testTypescript01";
 import { Grid, Row } from "./React children";
+import { UseDebounce } from "./UseDebounce";
 
 const App = () => {
   // const person = {
@@ -73,6 +74,7 @@ const App = () => {
         <Row color="blue" render={true} />
         <Row color="tomato" render={false} />
       </Grid>
+      <UseDebounce />
     </div>
   );
 };
