@@ -5,10 +5,7 @@ export const ArrayFindUniquePolyfill = () => {
       acc[el] ? acc[el]++ : (acc[el] = 1);
       return acc;
     }, {});
-    return this.reduce((acc, el) => {
-      if (counterMap[el] === 1) acc.push(el);
-      return acc;
-    }, []);
+    return this.filter((el) => counterMap[el] === 1);
   };
 
   console.log(
