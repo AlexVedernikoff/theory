@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // <T,> нужна в .tsx файлах
-export const TestTypescript = () => {
+
+export const RgetValue = () => {
   const developer = {
     name: "Ada",
     age: 16,

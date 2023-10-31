@@ -3,15 +3,16 @@ import "./App.css";
 import Buttons from "./ButtonsArr/buttonsArr";
 import { Salary } from "./Salary/salary";
 import { CounterEffector } from "./Effector/counterEffector";
-import { getValue } from "./typescript/keyof typeof";
+// import { getValue } from "./typescript/keyof_typeof";
 import { ArrayFindUniquePolyfill } from "./interviewTasks/array_findUnique()";
 import { ArrayMyFlatPolyfill } from "./Полифилы/array_flat()";
-import { TestTypescript } from "./typescript/testTypescript";
-import { TestTypescript01 } from "./typescript/testTypescript01";
+import { RgetValue } from "./typescript/5 getValue (T, K extends keyof T)";
+import { TestTypescript01 } from "./typescript/12 keyof any задача";
 import { Grid, Row } from "./React children";
 import { UseDebounce } from "./UseDebounce";
+import { dropDownItems } from "./typescript/for...In";
 
-const App = () => {
+const App: React.FC = () => {
   // const person = {
   //   name: "John",
   //   //  sayName: () => {
@@ -38,37 +39,17 @@ const App = () => {
 
   console.log("article01 = ", article01);
 
-  interface Response {
-    responseStatus: number;
-    content: string[];
-  }
-
-  interface Error {
-    responseStatus: number;
-    errorMessage: string;
-  }
-  type resType = Response | Error;
-
-  function isResSuccess(res: resType): res is Response {
-    return (res as Response).content !== undefined || "content" in res;
-  }
-
-  // const user = {
-  //   name: "Ada",
-  //   age: 16,
-  // };
-
-  // console.log(getValue(user, "name"));
+  ArrayFindUniquePolyfill();
+  ArrayMyFlatPolyfill();
+  RgetValue();
+  TestTypescript01();
+  console.log("dropDownItems = ", dropDownItems());
 
   return (
     <div className="App">
       <Buttons />
       {/* <CounterEffector /> */}
       <Salary />
-      {ArrayFindUniquePolyfill()}
-      {ArrayMyFlatPolyfill()}
-      {TestTypescript()}
-      {TestTypescript01()}
       <Grid>
         <Row color="green" render={true} />
         <Row color="blue" render={true} />

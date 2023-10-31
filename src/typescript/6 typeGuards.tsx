@@ -39,3 +39,16 @@ console.log("isResultSuccess(resS) = ", isResultSuccess(resS));
 console.log("isResultSuccess(resF) = ", isResultSuccess(resF));
 console.log("logResult(resS) = ", logResult(resS));
 console.log("logResult(resF) = ", logResult(resF));
+
+// опциональный вариант, когда при проверке нужно обратиться к вложенному свойству объекта
+
+interface Response {
+  responseStatus: number;
+  content: string[];
+}
+
+type resType = Response | Error;
+
+function isResSuccess(res: resType): res is Response {
+  return (res as Response).content !== undefined || "content" in res;
+}

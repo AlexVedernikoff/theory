@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 export const TestTypescript01 = () => {
-  console.log("Hello!");
-
   type PersonList = "Max" | "Alex" | "Boris";
   type PersonProps = {
     age: number;
@@ -15,19 +13,18 @@ export const TestTypescript01 = () => {
     Boris: { age: 25, height: 180 },
   };
 
-  type test = typeof man;
+  // Задача: написать тип optionalRecord, в котором как ключи PersonList ("Max" | "Alex" | "Boris")
+  // так и все поля в типе PersonProps (age | height) будут опциаональными
 
-  type optionalRecord<K, T> = {
-    // [P in K]?: Partial<T>;
-    [P in string | number | symbol]?: Partial<T>;
+  // "keyof any" это то же самое, что "string | number | symbol"
+
+  type optionalRecord<K extends string | number | symbol, T> = {
+    [P in K]?: Partial<T>;
   };
 
-  let man2: optionalRecord<PersonList, PersonProps> = {
+  const peopleListOptional: optionalRecord<PersonList, PersonProps> = {
     Alex: { age: 23, height: 176 },
     Max: { age: 24 },
     // Boris: { age: 25, height: 180 },
   };
-
-  //   console.log("value of object[key] = ", getValue(developer, "name"));
-  //   console.log("value of object[key] = ", getProperty(developer, "skills"));
 };
