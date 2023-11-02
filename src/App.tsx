@@ -25,20 +25,6 @@ const App: React.FC = () => {
 
   // person.sayName();
 
-  class Article {
-    id: number;
-    content: string;
-    constructor(id: number, content: string) {
-      this.id = id;
-      this.content = content;
-    }
-  }
-
-  type ArticleType = InstanceType<typeof Article>;
-  const article01: ArticleType = new Article(1, "текст статьи");
-
-  console.log("article01 = ", article01);
-
   ArrayFindUniquePolyfill();
   ArrayMyFlatPolyfill();
   RgetValue();
