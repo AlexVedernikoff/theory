@@ -11,25 +11,15 @@ import { TestTypescript01 } from "./typescript/12 keyof any задача";
 import { Grid, Row } from "./React children";
 import { UseDebounce } from "./UseDebounce";
 import { dropDownItems } from "./typescript/for...In";
+import { this_context } from "./Теория/контекст this стрелочные функции";
 
 const App: React.FC = () => {
-  // const person = {
-  //   name: "John",
-  //   //  sayName: () => {
-  //   //      console.log(`Hi! My name is ${this.name}`)
-  //   //  }
-  //   sayName() {
-  //     console.log(`Hi! My name is ${this.name}`);
-  //   },
-  // };
-
-  // person.sayName();
-
-  ArrayFindUniquePolyfill();
-  ArrayMyFlatPolyfill();
-  RgetValue();
-  TestTypescript01();
-  console.log("dropDownItems = ", dropDownItems());
+  // ArrayFindUniquePolyfill();
+  // ArrayMyFlatPolyfill();
+  // RgetValue();
+  // TestTypescript01();
+  // console.log("dropDownItems = ", dropDownItems());
+  this_context(); // лекция про потерю контекста
 
   return (
     <div className="App">
