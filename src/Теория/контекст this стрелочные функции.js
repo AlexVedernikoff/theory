@@ -140,3 +140,5 @@ export function this_context() {
     Ada.sayHiFnc();
   }, 1000);
 }
+
+// https://habr.com/ru/companies/otus/articles/719138/

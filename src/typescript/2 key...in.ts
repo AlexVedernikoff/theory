@@ -13,3 +13,8 @@ type OptionsFlags<Type> = {
 
 // [K in languages] если передаём union
 // [Property in keyof Type]: если передаём тип
+
+// если нужно передать в тип интерфейс в качестве джеренерика
+type OptionsFromInterface<T extends string> = {
+  [key in T]: boolean;
+};
