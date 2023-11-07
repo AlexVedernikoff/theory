@@ -6,8 +6,8 @@ const people = [
   { name: "Alex", age: 20 },
   { name: "Marta", age: 18 },
   { name: "Lisa", age: 17 },
-];
-// ] as const;
+  // ];
+] as const;
 
 type People = (typeof people)[number];
 
@@ -34,3 +34,10 @@ const Article = {
 
 type someArticleValues = (typeof Article)["id" | "author"];
 // теперь type someArticleValues = string | number;
+
+// *** 4 Как получить union тип из элементов массива? *************************
+
+const directions = ["right", "down", "left", "up"] as const;
+type TDirections = (typeof directions)[number];
+
+// теперь type TDirections = "right" | "down" | "left" | "up"

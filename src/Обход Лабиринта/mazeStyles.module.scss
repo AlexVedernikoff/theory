@@ -1,0 +1,19 @@
+.flexCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cell {
+  width: 20px;
+  border: 1px solid;
+}
+
+.wall {
+  background-color: darkslategrey;
+}
+
+.current {
+  background-color: darkorange;
+}

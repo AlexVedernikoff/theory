@@ -12,6 +12,8 @@ import { Grid, Row } from "./React children";
 import { UseDebounce } from "./UseDebounce";
 import { dropDownItems } from "./typescript/for...In";
 import { this_context } from "./Теория/контекст this стрелочные функции";
+import { test } from "./test";
+import { Maze } from "./Обход Лабиринта";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -19,10 +21,12 @@ const App: React.FC = () => {
   // RgetValue();
   // TestTypescript01();
   // console.log("dropDownItems = ", dropDownItems());
-  this_context(); // лекция про потерю контекста
+  // this_context(); // лекция про потерю контекста
+  test();
 
   return (
     <div className="App">
+      <Maze /> {/*  Задача про обход Лабиринта */}
       <Buttons />
       {/* <CounterEffector /> */}
       <Salary />
@@ -31,7 +35,7 @@ const App: React.FC = () => {
         <Row color="blue" render={true} />
         <Row color="tomato" render={false} />
       </Grid>
-      <UseDebounce />
+      {/* <UseDebounce /> */}
     </div>
   );
 };
