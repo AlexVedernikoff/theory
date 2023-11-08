@@ -14,7 +14,7 @@ export const Maze: React.FC = () => {
   const Maze = [
     [".", ".", ".", "W", "W"],
     ["W", "W", ".", ".", "."],
-    [".", ".", ".", ".", "W"],
+    [".", ".", ".", "W", "W"],
     [".", "W", "W", ".", "."],
     [".", ".", ".", ".", "."],
   ];
@@ -34,13 +34,11 @@ export const Maze: React.FC = () => {
 
   type TDirections = keyof typeof directionsMap;
 
-  function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-  }
-
   const Labyrinth: React.FC<IProps> = ({ maze }) => {
     const [currentCell, setCurrent] = useState([0, 0]);
-    const [direction, setDirection] = useState<TDirections>("right");
+    const [currentDirection, setDirection] = useState<TDirections>("right");
+    const [win, setWin] = useState<boolean | undefined>(undefined);
+    const [firstMoving, setFirstMoving] = useState(true);
 
     const getClassName = (cell: string, [i, j]: [number, number]) => {
       if (cell === "W") return `${s.cell} ${s.wall}`;
@@ -92,57 +90,78 @@ export const Maze: React.FC = () => {
         ))}
       </div>
     ));
+    const iterateDirections = (currentDirection: TDirections) => {
+      console.log("массив на входе = ", directions);
+      console.log("текущее направление = ", currentDirection);
+      let idx = directions.indexOf(currentDirection);
+      console.log("id текущего направления в массиве = ", idx);
+      let i = idx === 0 ? directions.length - 1 : idx - 1;
+      const iterateArray = [...directions.slice(i), ...directions.slice(0, i)];
+      console.log("новый массив для итерирования = ", iterateArray);
 
-    useEffect(() => {
-      let interval;
+      const movings = iterateArray.filter((direction) =>
+        checkDirection(direction)
+      );
+
+      console.log("возможные направление движения", movings);
+      return movings.length ? movings[0] : false;
+    };
+
+    const checkWin = () => {
       if (
         currentCell[0] === maze[0].length - 1 &&
         currentCell[1] === maze.length - 1
       ) {
-        alert("Вы успешно прошли лабиринт!");
-      } else {
-        interval = setInterval(() => {
-          if (checkDirection(direction)) {
-            move(direction);
-          } else {
-            console.log(getRandomInt(4));
-            setDirection(directions[getRandomInt(4)]);
-          }
-        }, 800);
+        setWin(true);
       }
+    };
+
+    const checkFalseWin = (newDirection) => {
+      console.log("firstMoving = ", firstMoving);
+      console.log("currentCell = ", currentCell);
+      console.log("currentDirection = ", currentDirection);
+
+      if (
+        firstMoving === false &&
+        currentCell[0] === 0 &&
+        currentCell[1] === 0 &&
+        newDirection === "right"
+      ) {
+        return true;
+      }
+    };
+
+    useEffect(() => {
+      if (win || win === false) return;
+      checkWin();
+      let interval;
+
+      interval = setInterval(() => {
+        const newDirection = iterateDirections(currentDirection);
+        console.log("новое направление движения", newDirection);
+
+        if (!newDirection || checkFalseWin(newDirection)) {
+          setWin(false);
+          return;
+        }
+
+        if (newDirection && newDirection !== currentDirection) {
+          setDirection(newDirection);
+        }
+
+        newDirection && move(newDirection);
+
+        setFirstMoving(false);
+      }, 500);
 
       return () => clearInterval(interval);
-    }, [currentCell, direction]);
-
-    // const iterateDirections = (currentDirection: TDirections) => {
-    //   console.log("массив на входе = ", directions);
-    //   let idx = directions.indexOf(currentDirection);
-    //   let i = idx === 0 ? directions.length - 1 : idx - 1;
-    //   console.log("idx = ", i);
-    //   setInterval(() => {
-    //     if (i === directions.length) i = 0;
-    //     console.log("текущий i = ", i, "элемент = ", directions[i]);
-    //     checkDirection(currentDirection);
-    //     i++;
-    //   }, 20000);
-    // };
-
-    // const checkDirections = (arr, i) => {
-    //   console.log("массив на входе = ", arr);
-    //   setInterval(() => {
-    //     if (i === arr.length) i = 0;
-    //     console.log("текущий i = ", i, "элемент = ", arr[i]);
-    //     i++;
-    //   }, 1000);
-    // };
-
-    // setInterval(() => console.log("tick"), 2000);
-
-    // iterateDirections(direction);
+    }, [currentCell, currentDirection, win]);
 
     return (
       <>
         <div className={s.flexCentered}>{structure}</div>
+        {win && <div>Победа! Лабиринт пройден!</div>}
+        {win === false && <div>Этот лабиринт пройти Невозможно!</div>}
         <button onClick={() => move("right")}>right</button>
         <button onClick={() => move("down")}>down</button>
         <button onClick={() => move("left")}>left</button>
