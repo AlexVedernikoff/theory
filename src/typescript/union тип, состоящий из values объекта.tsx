@@ -78,14 +78,6 @@ type person_2 = Partial<person_1>;
 
 // ***************************************************************************
 
-class Article {
-  constructor(id: number, content: string) {}
-}
-
-const article01 = new Article(1, "text");
-
-console.log(article01);
-
 // https://www.youtube.com/watch?v=Fgcu_iB2X04&t=1186s
 
 // ***************************************************************************

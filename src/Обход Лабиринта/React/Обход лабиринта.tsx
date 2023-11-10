@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import s from "./mazeStyles.module.scss";
 
 export const Maze: React.FC = () => {
-  const Maze1 = [
-    [".", ".", ".", "."],
-    [".", "W", ".", "."],
-    [".", ".", "W", "W"],
-    ["W", ".", ".", "."],
+  const Maze = [
+    [".", ".", ".", ".", ".", "."],
+    [".", "W", "W", "W", "W", "."],
+    [".", "W", ".", ".", ".", "."],
+    [".", "W", ".", "W", ".", "W"],
+    [".", "W", ".", "W", ".", "."],
+    [".", ".", ".", "W", "W", "."],
   ];
 
-  const Maze = [
-    [".", ".", ".", "W", "W"],
-    ["W", "W", ".", ".", "."],
+  const Maze1 = [
+    [".", "W", ".", "W", "W"],
+    [".", "W", ".", ".", "."],
     [".", ".", ".", "W", "W"],
     [".", "W", "W", ".", "."],
     [".", ".", ".", ".", "."],
@@ -32,11 +34,15 @@ export const Maze: React.FC = () => {
 
   const directions = ["right", "down", "left", "up"] as const;
 
-  type TDirections = keyof typeof directionsMap;
+  // type TDirections = keyof typeof directionsMap;
+  type TDirections = (typeof directions)[number];
 
   const Labyrinth: React.FC<IProps> = ({ maze }) => {
     const [currentCell, setCurrent] = useState([0, 0]);
-    const [currentDirection, setDirection] = useState<TDirections>("right");
+    const initialDirection = useMemo(() => iterateDirections(), []);
+    const [currentDirection, setDirection] = useState<TDirections | false>(
+      initialDirection
+    );
     const [win, setWin] = useState<boolean | undefined>(undefined);
     const [firstMoving, setFirstMoving] = useState(true);
 
@@ -47,7 +53,17 @@ export const Maze: React.FC = () => {
       return `${s.cell}`;
     };
 
-    const checkDirection = (newDirection: TDirections): boolean => {
+    const structure = maze.map((row, r) => (
+      <div key={r} style={{ display: "flex" }}>
+        {row.map((cell, c) => (
+          <div key={c} className={getClassName(cell, [c, r])}>
+            {cell}
+          </div>
+        ))}
+      </div>
+    ));
+
+    function checkDirection(newDirection: TDirections): boolean {
       console.log("\ncheck текущая ячейка = ", currentCell);
       const newCell = [
         currentCell[0] + directionsMap[newDirection][0],
@@ -71,40 +87,28 @@ export const Maze: React.FC = () => {
         return false;
       }
       return true;
-    };
+    }
 
-    const move = (direction: TDirections) => {
-      checkDirection(direction) &&
-        setCurrent(([i, j]) => [
-          i + directionsMap[direction][0],
-          j + directionsMap[direction][1],
-        ]);
-    };
-
-    const structure = maze.map((row, r) => (
-      <div key={r} style={{ display: "flex" }}>
-        {row.map((cell, c) => (
-          <div key={c} className={getClassName(cell, [c, r])}>
-            {cell}
-          </div>
-        ))}
-      </div>
-    ));
-    const iterateDirections = (currentDirection: TDirections) => {
+    function iterateDirections(currentDirection: TDirections | false | void) {
       console.log("массив на входе = ", directions);
       console.log("текущее направление = ", currentDirection);
-      let idx = directions.indexOf(currentDirection);
+      let idx = currentDirection ? directions.indexOf(currentDirection) : 1;
       console.log("id текущего направления в массиве = ", idx);
       let i = idx === 0 ? directions.length - 1 : idx - 1;
       const iterateArray = [...directions.slice(i), ...directions.slice(0, i)];
       console.log("новый массив для итерирования = ", iterateArray);
-
       const movings = iterateArray.filter((direction) =>
         checkDirection(direction)
       );
-
       console.log("возможные направление движения", movings);
       return movings.length ? movings[0] : false;
+    }
+
+    const move = (direction: TDirections) => {
+      setCurrent(([i, j]) => [
+        i + directionsMap[direction][0],
+        j + directionsMap[direction][1],
+      ]);
     };
 
     const checkWin = () => {
@@ -125,11 +129,17 @@ export const Maze: React.FC = () => {
         firstMoving === false &&
         currentCell[0] === 0 &&
         currentCell[1] === 0 &&
-        newDirection === "right"
+        newDirection === initialDirection
       ) {
         return true;
       }
     };
+
+    useEffect(() => {
+      if (maze[0][0] === "W") {
+        setWin(false);
+      }
+    }, []);
 
     useEffect(() => {
       if (win || win === false) return;
@@ -149,10 +159,9 @@ export const Maze: React.FC = () => {
           setDirection(newDirection);
         }
 
-        newDirection && move(newDirection);
-
+        move(newDirection);
         setFirstMoving(false);
-      }, 500);
+      }, 250);
 
       return () => clearInterval(interval);
     }, [currentCell, currentDirection, win]);

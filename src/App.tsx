@@ -13,7 +13,8 @@ import { UseDebounce } from "./UseDebounce";
 import { dropDownItems } from "./typescript/for...In";
 import { this_context } from "./Теория/контекст this стрелочные функции";
 import { test } from "./test";
-import { Maze } from "./Обход Лабиринта";
+import { Maze } from "./Обход Лабиринта/React";
+import { LabyrinthNative } from "./Обход Лабиринта/LabyrinthNative/LabyrinthNative";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -22,11 +23,12 @@ const App: React.FC = () => {
   // TestTypescript01();
   // console.log("dropDownItems = ", dropDownItems());
   // this_context(); // лекция про потерю контекста
-  test();
+  // test();
+  // LabyrinthNative(); //  Задача про обход Лабиринта на чистом js
 
   return (
     <div className="App">
-      <Maze /> {/*  Задача про обход Лабиринта */}
+      <Maze /> {/* Задача про обход Лабиринта */}
       <Buttons />
       {/* <CounterEffector /> */}
       <Salary />
