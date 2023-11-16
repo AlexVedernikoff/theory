@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export const Mosbirzja = () => {
   console.log("Собеседование на Мосбиржу");
   const User = {
@@ -67,6 +69,33 @@ export const Mosbirzja = () => {
   // макрозадачи 2
   // 1 3 6 4 5 2
   // console.log("1 3 6 4 5 2");
-
-  //   *********************************************************************
 };
+
+//   *********************************************************************
+//   **** Задача 3 *******************************************************
+export const AppM = () => {
+  const [tasksState, setTasksState] = useState([]);
+  async function getTasks() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const tasks = await response.json();
+    return tasks;
+  }
+
+  useEffect(() => {
+    getTasks().then((tasks) => {
+      console.log("tasks = ", tasks);
+      setTasksState(tasks);
+    });
+  }, []);
+
+  const taskList = tasksState.map(({ title, id }) => <li key={id}>{title}</li>);
+
+  return (
+    <>
+      <h1>Мосбиржа</h1>
+      <ul style={{ listStyle: "none" }}>{taskList}</ul>
+    </>
+  );
+};
+
+//   *********************************************************************
