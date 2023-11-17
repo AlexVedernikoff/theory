@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 
 export const Mosbirzja = () => {
@@ -94,6 +95,65 @@ export const AppM = () => {
     <>
       <h1>Мосбиржа</h1>
       <ul style={{ listStyle: "none" }}>{taskList}</ul>
+    </>
+  );
+};
+
+//   *********************************************************************
+
+type TTasks = {
+  id: number;
+  name: string;
+  subTasks?: TTasks;
+}[];
+
+interface IProps {
+  tasks: TTasks;
+}
+
+export const Mosbtasks: TTasks = [
+  {
+    id: 1,
+    name: "Task 1",
+    subTasks: [
+      {
+        id: 2,
+        name: "Task 1.1",
+        subTasks: [
+          {
+            id: 3,
+            name: "Task 1.1.1",
+          },
+        ],
+      },
+      {
+        id: 3,
+        name: "Task 1.2",
+        subTasks: [],
+      },
+    ],
+  },
+];
+
+//   *******************************************************************************
+//   **** Задача 4  рекурсия *******************************************************
+export const AppMb: React.FC<IProps> = ({ tasks }) => {
+  console.log("tasks = ", tasks);
+
+  const taskList = (tasks: TTasks) =>
+    tasks.map(({ id, name, subTasks }) => (
+      <li key={id}>
+        <span>{name}</span>
+        <ul style={{ listStyle: "none" }}>
+          {subTasks ? taskList(subTasks) : null}
+        </ul>
+      </li>
+    ));
+
+  return (
+    <>
+      <h1>Мосбиржа</h1>
+      <ul style={{ listStyle: "none" }}>{taskList(tasks)}</ul>
     </>
   );
 };
