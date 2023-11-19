@@ -1,6 +1,7 @@
 export const ArrayMyFlatPolyfill = () => {
   // eslint-disable-next-line no-extend-native
   Array.prototype.myFlat = function (depth = 1) {
+    // .flat() немутирующий метод, поэтому делаем копию [...this]
     let result = [...this];
     for (let d = 0; d < depth; d++) {
       let multiDimension = false;
@@ -13,6 +14,7 @@ export const ArrayMyFlatPolyfill = () => {
     return result;
   };
 
+  // *** тестирование *********************************************************
   const arrTwoLvl = [1, 2, [2], [4, 5], 6, 8, 7];
   const arrMulLvl = [1, 2, [2], [4, [5, 6, [[8]]], 7]];
 

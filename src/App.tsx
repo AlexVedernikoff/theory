@@ -12,9 +12,11 @@ import { Grid, Row } from "./React children";
 import { UseDebounce } from "./UseDebounce";
 import { dropDownItems } from "./typescript/for...In";
 import { this_context } from "./Теория/контекст this стрелочные функции";
-import { test } from "./test";
 import { Maze } from "./Обход Лабиринта/React";
 import { LabyrinthNative } from "./Обход Лабиринта/LabyrinthNative/LabyrinthNative";
+import { ReactCachingDecorator } from "./Теория/декораторы";
+import { AppM, AppMb, Mosbirzja, Mosbtasks } from "./interviewTasks/Мосбиржа/мосбиржа";
+import { ArrayMySortPolyfill } from "./Полифилы/array_sort()";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -24,11 +26,16 @@ const App: React.FC = () => {
   // console.log("dropDownItems = ", dropDownItems());
   // this_context(); // лекция про потерю контекста
   // test();
+
+  ArrayMySortPolyfill(); // полифил на array.sort()
+  // Mosbirzja();
+
   // LabyrinthNative(); //  Задача про обход Лабиринта на чистом js
+  // ReactCachingDecorator(); // Декораторы
 
   return (
     <div className="App">
-      <Maze /> {/* Задача про обход Лабиринта */}
+      {/* <Maze /> Задача про обход Лабиринта */}
       <Buttons />
       {/* <CounterEffector /> */}
       <Salary />
@@ -38,6 +45,8 @@ const App: React.FC = () => {
         <Row color="tomato" render={false} />
       </Grid>
       {/* <UseDebounce /> */}
+      {/* <AppM /> */}
+      {/* <AppMb tasks={Mosbtasks} /> */}
     </div>
   );
 };
