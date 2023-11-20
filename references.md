@@ -2,6 +2,12 @@
 
 https://stackoverflow.com/questions/36088655/accessing-a-css-custom-property-aka-css-variable-through-javascript
 
+## как получить значение CSS переменной?
+
+let prev = getComputedStyle(document.documentElement, null).getPropertyValue(
+'--exportFormatButtonCoordDiff',
+);
+
 # Теория для подготовки к собеседованиям
 
 ## контекст this стрелочные функции
