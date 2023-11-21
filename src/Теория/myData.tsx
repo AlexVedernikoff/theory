@@ -16,3 +16,6 @@ export class myData {
     return fullWeeks;
   }
 }
+
+// *** Теория ***
+// https://translated.turbopages.org/proxy_u/en-ru.ru.659fd8d7-655d16c3-44718283-74722d776562/https/stackoverflow.com/questions/7763327/how-to-calculate-date-difference-in-javascript
