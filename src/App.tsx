@@ -17,6 +17,7 @@ import { LabyrinthNative } from "./Обход Лабиринта/LabyrinthNative
 import { ReactCachingDecorator } from "./Теория/декораторы";
 import { AppM, AppMb, Mosbirzja, Mosbtasks } from "./interviewTasks/Мосбиржа/мосбиржа";
 import { ArrayMySortPolyfill } from "./Полифилы/array_sort()";
+import { DragDropNative } from "./Теория/Drag&Drop";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -26,15 +27,15 @@ const App: React.FC = () => {
   // console.log("dropDownItems = ", dropDownItems());
   // this_context(); // лекция про потерю контекста
   // test();
-
-  ArrayMySortPolyfill(); // полифил на array.sort()
   // Mosbirzja();
 
-  // LabyrinthNative(); //  Задача про обход Лабиринта на чистом js
-  // ReactCachingDecorator(); // Декораторы
+  // ArrayMySortPolyfill();   // 1 полифил на array.sort()
+  // LabyrinthNative();       // 2 Задача про обход Лабиринта на чистом js
+  // ReactCachingDecorator(); // 3 Декораторы
 
   return (
     <div className="App">
+      <DragDropNative />
       {/* <Maze /> Задача про обход Лабиринта */}
       <Buttons />
       {/* <CounterEffector /> */}
