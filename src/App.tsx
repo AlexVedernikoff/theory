@@ -15,9 +15,15 @@ import { this_context } from "./Теория/контекст this стрело�
 import { Maze } from "./Обход Лабиринта/React";
 import { LabyrinthNative } from "./Обход Лабиринта/LabyrinthNative/LabyrinthNative";
 import { ReactCachingDecorator } from "./Теория/декораторы";
-import { AppM, AppMb, Mosbirzja, Mosbtasks } from "./interviewTasks/Мосбиржа/мосбиржа";
+import {
+  AppM,
+  AppMb,
+  Mosbirzja,
+  Mosbtasks,
+} from "./interviewTasks/Мосбиржа/мосбиржа";
 import { ArrayMySortPolyfill } from "./Полифилы/array_sort()";
 import { DragDropNative } from "./Теория/Drag&Drop";
+import { myData } from "./Теория/myData";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -32,6 +38,9 @@ const App: React.FC = () => {
   // ArrayMySortPolyfill();   // 1 полифил на array.sort()
   // LabyrinthNative();       // 2 Задача про обход Лабиринта на чистом js
   // ReactCachingDecorator(); // 3 Декораторы
+  myData.getFullWeeksDiff("November 16, 2023", "November 17, 2023");
+  myData.getFullWeeksDiff("September 01, 2023", "September 07, 2023");
+  myData.getFullWeeksDiff("September 01, 2023", "December 08, 2023");
 
   return (
     <div className="App">
