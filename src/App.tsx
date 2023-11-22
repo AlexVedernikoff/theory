@@ -24,6 +24,7 @@ import {
 import { ArrayMySortPolyfill } from "./Полифилы/array_sort()";
 import { DragDropNative } from "./Теория/Drag&Drop";
 import { myData } from "./Теория/myData";
+import { commonElementsOfArrays } from "./Теория/Утилиты массивов";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -41,6 +42,10 @@ const App: React.FC = () => {
   myData.getFullWeeksDiff("November 16, 2023", "November 17, 2023");
   myData.getFullWeeksDiff("September 01, 2023", "September 07, 2023");
   myData.getFullWeeksDiff("September 01, 2023", "December 08, 2023");
+
+  const arr01 = ["a", "c", 1, 2, 3, 4, 5, 1];
+  const arr02 = ["a", "b", 1, 6, 3, 7, 5];
+  console.log("common(arr01, arr02) = ", commonElementsOfArrays(arr01, arr02));
 
   return (
     <div className="App">
