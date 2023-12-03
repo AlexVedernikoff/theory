@@ -29,6 +29,11 @@ import { myData } from "./Теория/myData";
 import { commonElementsOfArrays } from "./Теория/Утилиты массивов";
 import { DragDrop_ver20 } from "./Теория/Drag&Drop_ver2.0";
 import { DragDrop_ver30 } from "./Теория/Drag&Drop_ver3.0";
+import { treeByLevels, treeByLevels1, treeOne } from "./Теория/treeByLevels";
+import { BinarySearchTree } from "./Теория/BinarySearchTree";
+import { BinarySearchTreeLitvinova } from "./Теория/Бинарное дерево";
+import { EightQueens } from "./8Queens";
+import { modifyMatrix } from "./test_2";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -52,9 +57,20 @@ const App: React.FC = () => {
   // const arr02 = ["a", "b", 1, 6, 3, 7, 5];
   // console.log("common(arr01, arr02) = ", commonElementsOfArrays(arr01, arr02));
 
+  // console.log(treeByLevels(treeOne)); // Задача на преобразование бинарного дерева в плоский массив
+  // console.log(treeByLevels1(treeOne));
+  // modifyMatrix(4, 3);
+  //  1,0
+  //     2,1
+  //        3,2
+  //           4,3
+
   return (
     <div className="App">
-      <DragDrop_ver30 />
+      <EightQueens />
+      {/* <BinarySearchTree /> */}
+      {/* <BinarySearchTreeLitvinova /> */}
+      {/* <DragDrop_ver30 /> */}
       {/* <DragDrop_ver20 /> */}
       <DragDropNative />
       {/* <Maze /> Задача про обход Лабиринта */}

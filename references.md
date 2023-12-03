@@ -17,3 +17,7 @@ https://habr.com/ru/companies/otus/articles/719138/
 # Пример анимации цветные кубики
 
 https://dev.to/romaintrotard/let-s-do-some-animations-in-native-javascript-23jl
+
+# git
+
+https://stackoverflow.com/questions/11130292/what-does-git-merge-origin-master-do
