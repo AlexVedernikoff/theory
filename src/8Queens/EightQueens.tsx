@@ -59,7 +59,7 @@ export function EightQueens() {
       ([r, c]) => (newBoard[r][c] = "AT")
     );
 
-    queensArray.length === 2 &&
+    queensArray.length === 8 &&
       setBoardState((prevBoardState) => {
         const newBoardState = [...prevBoardState];
         newBoardState.push(newBoard);

@@ -28,17 +28,7 @@
   padding-bottom: 10px;
 }
 
-.rightColumn-SolutionsAll::before {
-  content: "";
-  position: relative;
-  display: inline-block;
-  width: 200px;
-  height: 1px;
-  left: 0px;
-  bottom: 0px;
-  background-color: black;
-}
-
+.rightColumn-SolutionsAll::before,
 .rightColumn-SolutionsAll::after {
   content: "";
   position: relative;
