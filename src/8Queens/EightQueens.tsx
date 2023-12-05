@@ -71,11 +71,8 @@ export function EightQueens() {
   useLayoutEffect(() => {
     const time1 = new Date();
 
-    (function qalculateQueen(
-      row = 0,
-      queensArray: number[][] = [],
-      boardStateNative = board()
-    ) {
+    (function qalculateQueen(row = 0, queensArray: number[][] = []) {
+      const boardStateNative = putArrayOfQueensOnBoard(queensArray);
       const cellsToPushQueen = boardStateNative[row].reduce(
         (acc: number[], cell, i) => (cell !== "AT" ? acc.concat(i) : acc),
         []
@@ -92,8 +89,7 @@ export function EightQueens() {
           return;
         }
 
-        boardStateNative = putArrayOfQueensOnBoard(queensArray);
-        qalculateQueen(row + 1, queensArray, boardStateNative);
+        qalculateQueen(row + 1, queensArray);
       });
     })();
     const time2 = new Date();
@@ -122,7 +118,11 @@ export function EightQueens() {
           <div>{boardState.length}</div>
           <label>
             <div>Введите номер решения (0 - {boardState.length - 1})</div>
-            <input value={solutionNumber} onChange={handleSolution} />
+            <input
+              value={solutionNumber}
+              onChange={handleSolution}
+              style={{ fontFamily: "Playfair Display", fontSize: "18px" }}
+            />
           </label>
         </div>
       </div>
