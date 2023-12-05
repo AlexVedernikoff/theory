@@ -2,6 +2,7 @@ import React, { ChangeEvent, useLayoutEffect } from "react";
 import { useState } from "react";
 import { ChessBoard } from "./ChessBoard";
 import { labelsArray } from "./constants";
+import s from "./chessBoarsStyles.module.scss";
 export function EightQueens() {
   const row = (row: number) => labelsArray.map((cell) => `${cell}${row}`);
   const board = () => labelsArray.map((_, i) => row(8 - i));
@@ -58,7 +59,7 @@ export function EightQueens() {
       ([r, c]) => (newBoard[r][c] = "AT")
     );
 
-    queensArray.length === 8 &&
+    queensArray.length === 2 &&
       setBoardState((prevBoardState) => {
         const newBoardState = [...prevBoardState];
         newBoardState.push(newBoard);
@@ -102,26 +103,27 @@ export function EightQueens() {
   return (
     <>
       <Typography>Задача о восьми ферзях</Typography>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "Playfair Display",
-        }}
-      >
-        <div>
-          <ChessBoard boardState={boardState[solutionNumber] || board()} />
-        </div>
-        <div style={{ width: "200px" }}>
-          <div>решений найдено: </div>
-          <div>{boardState.length}</div>
+      <div className={`${s.layout}`}>
+        <ChessBoard boardState={boardState[solutionNumber] || board()} />
+        <div className={`${s.rightColumn}`}>
+          <div className={`${s["rightColumn-SolutionsAll"]}`}>
+            решений найдено:
+            <div>{boardState.length}</div>
+          </div>
+
           <label>
-            <div>Введите номер решения (0 - {boardState.length - 1})</div>
+            <div>введите номер решения </div>
+            <div className={`${s["rightColumn-SolutionsChange"]}`}>
+              (0 - {boardState.length - 1})
+            </div>
             <input
               value={solutionNumber}
               onChange={handleSolution}
-              style={{ fontFamily: "Playfair Display", fontSize: "18px" }}
+              style={{
+                fontFamily: "Playfair Display",
+                fontSize: "18px",
+                width: "20%",
+              }}
             />
           </label>
         </div>
