@@ -34,6 +34,8 @@ import { BinarySearchTree } from "./Теория/BinarySearchTree";
 import { BinarySearchTreeLitvinova } from "./Теория/Бинарное дерево";
 import { EightQueens } from "./8Queens";
 import { modifyMatrix } from "./test_2";
+import { test3 } from "./test_3";
+import { BinarySearchReact } from "./Теория/Бинарный поиск";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -64,6 +66,8 @@ const App: React.FC = () => {
   //     2,1
   //        3,2
   //           4,3
+  // test3();
+  BinarySearchReact();
 
   return (
     <div className="App">
@@ -75,7 +79,7 @@ const App: React.FC = () => {
       <DragDropNative />
       {/* <Maze /> Задача про обход Лабиринта */}
       <Buttons />
-      {/* <CounterEffector /> */}
+      <CounterEffector />
       <Salary />
       <Grid>
         <Row color="green" render={true} />
