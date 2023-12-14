@@ -34,8 +34,11 @@ import { BinarySearchTree } from "./Теория/BinarySearchTree";
 import { BinarySearchTreeLitvinova } from "./Теория/Бинарное дерево";
 import { EightQueens } from "./8Queens";
 import { modifyMatrix } from "./test_2";
-import { test3 } from "./test_3";
-import { BinarySearchReact } from "./Теория/Бинарный поиск";
+import { test3 } from "./zcodeWars/duplicateEncode";
+import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
+import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
+import { testStr } from "./Алгоритмы/Графы/testString";
+import { test04 } from "./test04";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -62,12 +65,9 @@ const App: React.FC = () => {
   // console.log(treeByLevels(treeOne)); // Задача на преобразование бинарного дерева в плоский массив
   // console.log(treeByLevels1(treeOne));
   // modifyMatrix(4, 3);
-  //  1,0
-  //     2,1
-  //        3,2
-  //           4,3
-  // test3();
-  BinarySearchReact();
+
+  BinarySearchReact(); // бинарный поиск по отсортированному списку
+  // BFS_GraphReact();
 
   return (
     <div className="App">
