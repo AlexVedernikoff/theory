@@ -66,7 +66,7 @@ const App: React.FC = () => {
   // console.log(treeByLevels1(treeOne));
   // modifyMatrix(4, 3);
 
-  BinarySearchReact(); // бинарный поиск по отсортированному списку
+  // BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
   // BFS_GraphReact();
   test();
   return (
