@@ -37,6 +37,7 @@ import { modifyMatrix } from "./test_2";
 import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
 import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
 import { test } from "./test01";
+import { sortPivReact } from "./Алгоритмы/сортировка вокруг опорного элемента";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -64,7 +65,8 @@ const App: React.FC = () => {
   // console.log(treeByLevels1(treeOne));
   // modifyMatrix(4, 3);
 
-  BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
+  // BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
+  sortPivReact(); // алгоритм сортировки массива вокруг опорного элемента
   // BFS_GraphReact();
   // test();
   return (

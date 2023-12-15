@@ -21,3 +21,7 @@ https://dev.to/romaintrotard/let-s-do-some-animations-in-native-javascript-23jl
 # git
 
 https://stackoverflow.com/questions/11130292/what-does-git-merge-origin-master-do
+
+## git amend (Как изменить последний коммит?)
+
+https://habr.com/ru/articles/201922/
