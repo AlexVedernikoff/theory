@@ -38,7 +38,7 @@ import { test3 } from "./zcodeWars/duplicateEncode";
 import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
 import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
 import { testStr } from "./Алгоритмы/Графы/testString";
-import { test04 } from "./test04";
+import { test } from "./test01";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -68,7 +68,7 @@ const App: React.FC = () => {
 
   BinarySearchReact(); // бинарный поиск по отсортированному списку
   // BFS_GraphReact();
-
+  test();
   return (
     <div className="App">
       <EightQueens />
