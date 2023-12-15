@@ -12,12 +12,14 @@
 export const BinarySearchReact = () => {
   // **********************************************************
   function binarySearch(arr: number[], value: number, position = 0) {
-    const middle = Math.floor(arr.length / 2);
     // если в массиве остался всего один элемент
-    if (middle === 0) {
-      return arr[middle] === value ? position : undefined;
+    if (arr.length === 1) {
+      return arr[0] === value ? position : undefined;
     }
+    const middle = Math.floor(arr.length / 2);
+
     // если первый элемент правого массива = value, а последний элемент левого не равен.
+    // (опциональная проверка. Не влияет на результат, а лишь сокращает количество итераций. )
     if (arr[middle] === value && arr[middle - 1] !== value) {
       return position + middle;
     }
@@ -29,10 +31,10 @@ export const BinarySearchReact = () => {
 
   // *** Проверка *********************************************
   // const list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const list = [7, 14, 25];
-  // const list = createArray(1000, 1000).sort((a, b) => (a > b ? 1 : -1));
+  // const list = [7, 14, 25];
+  const list = createArray(1000, 1000).sort((a, b) => (a > b ? 1 : -1));
 
-  list.forEach((el, i) => {
+  const testResult = list.every((el, i) => {
     console.log(
       "Индекс элемента ",
       el,
@@ -42,7 +44,9 @@ export const BinarySearchReact = () => {
       binarySearch(list, el) === list.indexOf(el)
       //   binarySearch(list, el) === i
     );
+    return binarySearch(list, el) === list.indexOf(el);
   });
+  console.log("Проверка успешно прошла для всех элементов = ", testResult);
 
   // **********************************************************
 };

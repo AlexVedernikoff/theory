@@ -34,10 +34,8 @@ import { BinarySearchTree } from "./Теория/BinarySearchTree";
 import { BinarySearchTreeLitvinova } from "./Теория/Бинарное дерево";
 import { EightQueens } from "./8Queens";
 import { modifyMatrix } from "./test_2";
-import { test3 } from "./zcodeWars/duplicateEncode";
 import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
 import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
-import { testStr } from "./Алгоритмы/Графы/testString";
 import { test } from "./test01";
 
 const App: React.FC = () => {
@@ -66,9 +64,9 @@ const App: React.FC = () => {
   // console.log(treeByLevels1(treeOne));
   // modifyMatrix(4, 3);
 
-  // BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
+  BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
   // BFS_GraphReact();
-  test();
+  // test();
   return (
     <div className="App">
       <EightQueens />
