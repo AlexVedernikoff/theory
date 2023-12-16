@@ -7,3 +7,8 @@ export function createArray(length: number, max: number) {
   }
   return result;
 }
+
+// вернуть случайное целое число от 0 до max, не включая max.
+export function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}

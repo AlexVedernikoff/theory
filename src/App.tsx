@@ -36,8 +36,9 @@ import { EightQueens } from "./8Queens";
 import { modifyMatrix } from "./test_2";
 import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
 import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
-import { test } from "./test01";
+import { test } from "./test";
 import { quickSortReact } from "./Алгоритмы/сортировка вокруг опорного элемента";
+import { bubbleSortReact } from "./Алгоритмы/пузырьковая сортировка";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -65,8 +66,10 @@ const App: React.FC = () => {
   // console.log(treeByLevels1(treeOne));
   // modifyMatrix(4, 3);
 
-  // BinarySearchReact(); // алгоритм бинарного поиска по отсортированному списку
-  quickSortReact(); // алгоритм сортировки массива вокруг опорного элемента
+  // BinarySearchReact(); // (1) алгоритм бинарного поиска по отсортированному списку
+  bubbleSortReact(); // (2) алгоритм пузырьковой сортировки массива
+  // quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
+
   // BFS_GraphReact();
   // test();
   return (
