@@ -17,12 +17,7 @@ import { this_context } from "./Теория/контекст this стрело�
 import { Maze } from "./Обход Лабиринта/React";
 import { LabyrinthNative } from "./Обход Лабиринта/LabyrinthNative/LabyrinthNative";
 import { ReactCachingDecorator } from "./Теория/декораторы";
-import {
-  AppM,
-  AppMb,
-  Mosbirzja,
-  Mosbtasks,
-} from "./interviewTasks/Мосбиржа/мосбиржа";
+import { AppM, AppMb, Mosbirzja, Mosbtasks } from "./interviewTasks/Мосбиржа/мосбиржа";
 import { ArrayMySortPolyfill } from "./Полифилы/array_sort()";
 import { DragDropNative } from "./Теория/Drag&Drop";
 import { myData } from "./Теория/myData";
@@ -39,7 +34,9 @@ import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа �
 import { test } from "./test";
 import { quickSortReact } from "./Алгоритмы/сортировка вокруг опорного элемента";
 import { bubbleSortReact } from "./Алгоритмы/пузырьковая сортировка";
-import { DijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дэйкстры";
+import { DijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/simp Алгоритм Дейкстры";
+import { myDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/my Дейкстра";
+import { shortListDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/short Алгоритм Дейкстры";
 
 const App: React.FC = () => {
   // ArrayFindUniquePolyfill();
@@ -70,7 +67,9 @@ const App: React.FC = () => {
   // BinarySearchReact(); // (1) алгоритм бинарного поиска по отсортированному списку
   // bubbleSortReact(); // (1) алгоритм пузырьковой сортировки массива
   // quickSortReact(); // (2) алгоритм сортировки массива вокруг опорного элемента
-  DijkstraReact(); // Алгоритм Дэйкстры
+  // myDijkstraReact(); // пробую самостоятельно повторить алгоритм Дейкстры
+  // DijkstraReact(); // Алгоритм Дейкстры
+  shortListDijkstraReact(); // Дейкстры > Вывести кратчайшие пути из точки А во все точки
 
   // BFS_GraphReact();
   // test();

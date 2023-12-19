@@ -12,7 +12,7 @@ export const DijkstraReact = () => {
     c: { a: 1, d: 1 },
     d: { b: 3, c: 3, e: 5 },
     e: { d: 5, i: 2 },
-    i: { a: 3, e: 1 },
+    i: { a: 3, e: 2 },
   };
 
   //   Создаём
@@ -23,11 +23,12 @@ export const DijkstraReact = () => {
   // Простейший вариант функции. Находит наименьшую по стоимости цепочку
   // от  start до end, не вычисляя само значение стоимости.
   function dijkstra(graph: Tgraph, start: TNodesList, end: TNodesList) {
-    const distances: TNode = {}; // = costs (расстояние до точек / "стоимость" перехода между точками)
-    const visited = new Set<TNodesList>(); // Set(2) {'a', 'c'}  // = parents (сюда будем помещать посещённые вершины)
-    const path = {}; // = queue (история пути)
+    const distances: TNode = {}; // costs (расстояние до точек / "стоимость" перехода между точками)
+    const visited = new Set<TNodesList>(); // Set(2) {'a', 'c'}  // (сюда будем помещать посещённые вершины)
+    const path = {}; //  {"точка, куда пришли" : "родительская точка, из которой пришли"} (история пути)
 
     for (const key in graph) {
+      // { "a": 0, "b" ... "i" : Infinity }
       if (key !== start) {
         distances[key] = Infinity;
       } else {
@@ -59,6 +60,10 @@ export const DijkstraReact = () => {
           );
           lowestDistance = distances[key]!;
           console.log(`И теперь значение lowestDistance = ${lowestDistance}`);
+          console.log(
+            `В качестве текущей вершины принимаем ту, значение до которой минимально.`,
+            `distances[${key}]=${distances[key]}, вершина node = ${key}`
+          );
           node = key;
         }
       }
@@ -90,21 +95,35 @@ export const DijkstraReact = () => {
     }
 
     const shortPath: Array<TNodesList> = [];
+    const distancesList: Array<number> = [];
     let current = end;
     while (current !== start) {
       shortPath.unshift(current);
+      distancesList.unshift(graph[path[current]][current]);
+
       current = path[current];
     }
     shortPath.unshift(start);
+    const distance = distancesList.reduce((acc, a) => acc + a);
     console.log(`Количество операций = `, i);
-    return shortPath;
+    return {
+      короткий_путь: shortPath,
+      стоимость_переходов: distancesList,
+      общая_стоимость_пути: distance,
+    };
   }
 
   // *** Проверка ***
-  console.log(
-    "Самый короткий путь в графе между вершинами a и e = ",
-    dijkstra(graph, "a", "e")
-  );
+  const nodes: TNodesList[][] = [
+    ["a", "e"],
+    ["e", "c"],
+  ];
+  nodes.slice(0, 1).forEach((node) => {
+    console.log(
+      `Самый короткий путь в графе между вершинами ${node[0]} и ${node[1]} = `,
+      dijkstra(graph, node[0], node[1])
+    );
+  });
 
   // ******************************************************************
 };
