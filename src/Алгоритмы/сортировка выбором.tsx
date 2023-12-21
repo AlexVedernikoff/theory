@@ -10,7 +10,7 @@ export const selectionSortReact = () => {
     [arr[a], arr[b]] = [arr[b], arr[a]];
   }
 
-  function selectionSort(array) {
+  function selectionSort1(array) {
     for (let i = 0; i < array.length - 1; i++) {
       let minIndex = i;
       for (let j = i + 1; j < array.length; j++) {
@@ -23,18 +23,17 @@ export const selectionSortReact = () => {
     return array;
   }
 
-  function selectionSort1(array) {
+  function selectionSort(array) {
     console.log("Сортируемый массив = ", array);
     let max = 0;
-    for (let i = 0; i < array.length - 1; i++) {
+    for (let i = 0; i < array.length - 1 - max; i++) {
       let minIndex = i;
       let maxIndex = i;
       console.log(
         `сортированные/несортированные части массива = `,
         array.slice(0, minIndex),
         array.slice(minIndex, array.length - max),
-        `max=${max}`,
-        max ? array.slice(-max) : []
+        array.slice(array.length - max, array.length)
       );
       console.log(`\n\n*** Назначаем элемент array[${i}] = ${array[i]} минимальным 
         и сравниваем его c остальными элементами массива`);
@@ -74,7 +73,7 @@ export const selectionSortReact = () => {
     return array;
   }
   // *** Проверка ***
-  const list = createArray(10, 10);
+  const list = createArray(50, 1000);
   //   console.log(`массив для сортировки = `, list);
   //   swap(0, 1, list);
   console.log(`массив для сортировки = `, list);
