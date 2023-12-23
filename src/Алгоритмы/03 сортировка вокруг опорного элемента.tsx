@@ -14,12 +14,16 @@ export const quickSortReact = () => {
     // Условие остановки, выхода из рекурсии, возвращем массив с 1 элементом
     if (arr.length < 2) return arr;
     // Выбираем опорный элемент
+    // const pivotIndex = Math.floor(Math.random() * arr.length); // опционально - случайный выбор опорного элемента
+    // let pivot = arr[pivotIndex];
     let pivot = arr[0];
     // Определяем массивы для тех, что меньше и больше опорного
     const [left, right]: Array<Array<any>> = [[], []];
 
     // Проходим циклом по всем элементам из массива и разносим их в массивы созданные ранее согласно условию, больше опорного - в правый, меньше - в левый
     for (let i = 1; i < arr.length; i++) {
+      // random  let i = 0
+      // if (i === pivotIndex) continue;
       if (pivot > arr[i]) {
         left.push(arr[i]);
       } else {
@@ -32,6 +36,7 @@ export const quickSortReact = () => {
 
   // *** Проверка ***
   const list = createArray(10, 100);
+  // const list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   console.log("Массив, который нужно отсортировать = ", list);
   console.log("Результат сортировки = ", quickSort(list));
   console.log(
@@ -40,6 +45,7 @@ export const quickSortReact = () => {
       quickSort(list),
       [...list].sort((a, b) => a - b)
     )
+    // `Количество операций = ${count}`
   );
 
   // **********************************************************

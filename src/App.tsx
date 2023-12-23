@@ -32,7 +32,7 @@ import { modifyMatrix } from "./test_2";
 import { BinarySearchReact } from "./Алгоритмы/Бинарный поиск";
 import { BFS_GraphReact } from "./Алгоритмы/Графы/BFS графа в ширину";
 import { test } from "./test";
-import { quickSortReact } from "./Алгоритмы/сортировка вокруг опорного элемента";
+import { quickSortReact } from "./Алгоритмы/03 сортировка вокруг опорного элемента";
 import { DijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/simp Алгоритм Дейкстры";
 import { myDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/my Дейкстра";
 import { shortListDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/short Алгоритм Дейкстры";
@@ -67,8 +67,8 @@ const App: React.FC = () => {
 
   // BinarySearchReact(); // (1) алгоритм бинарного поиска по отсортированному списку
   // bubbleSortReact(); // (1) алгоритм пузырьковой сортировки массива
-  selectionSortReact(); // (2) алгоритм сортировки массива выбором
-  // quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
+  // selectionSortReact(); // (2) алгоритм сортировки массива выбором
+  quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
   // myDijkstraReact(); // пробую самостоятельно повторить алгоритм Дейкстры
   // DijkstraReact(); // Алгоритм Дейкстры
   // shortListDijkstraReact(); // Дейкстры > Вывести кратчайшие пути из точки А во все точки
