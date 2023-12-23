@@ -36,7 +36,7 @@ import { quickSortReact } from "./Алгоритмы/сортировка вок
 import { DijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/simp Алгоритм Дейкстры";
 import { myDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/my Дейкстра";
 import { shortListDijkstraReact } from "./Алгоритмы/Графы/Алгоритм Дейкстры/short Алгоритм Дейкстры";
-import { selectionSortReact } from "./Алгоритмы/сортировка выбором";
+import { selectionSortReact } from "./Алгоритмы/02 сортировка выбором";
 import { bubbleSortReact } from "./Алгоритмы/01 пузырьковая сортировка";
 
 const App: React.FC = () => {
@@ -66,8 +66,8 @@ const App: React.FC = () => {
   // modifyMatrix(4, 3);
 
   // BinarySearchReact(); // (1) алгоритм бинарного поиска по отсортированному списку
-  bubbleSortReact(); // (1) алгоритм пузырьковой сортировки массива
-  // selectionSortReact(); // (2) алгоитм сортировки массива выбором
+  // bubbleSortReact(); // (1) алгоритм пузырьковой сортировки массива
+  selectionSortReact(); // (2) алгоритм сортировки массива выбором
   // quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
   // myDijkstraReact(); // пробую самостоятельно повторить алгоритм Дейкстры
   // DijkstraReact(); // Алгоритм Дейкстры
