@@ -20,3 +20,5 @@ console.log(a === b);
 console.log(Array.from(new Set([1, 2, 2, 3, 4])));
 // вариант 2
 console.log([...new Set([1, 2, 2, 3, 4])]);
+
+// https://stackoverflow.com/questions/24074968/does-sort-function-change-original-array

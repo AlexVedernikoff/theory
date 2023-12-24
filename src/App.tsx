@@ -49,7 +49,7 @@ const App: React.FC = () => {
   // test();
   // Mosbirzja();
 
-  // ArrayMySortPolyfill();   // 1 полифил на array.sort()
+  ArrayMySortPolyfill(); // 1 полифил на array.sort()
   // LabyrinthNative();       // 2 Задача про обход Лабиринта на чистом js
   // ReactCachingDecorator(); // 3 Декораторы
 
@@ -68,7 +68,7 @@ const App: React.FC = () => {
   // BinarySearchReact(); // (1) алгоритм бинарного поиска по отсортированному списку
   // bubbleSortReact(); // (1) алгоритм пузырьковой сортировки массива
   // selectionSortReact(); // (2) алгоритм сортировки массива выбором
-  quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
+  // quickSortReact(); // (3) алгоритм сортировки массива вокруг опорного элемента
   // myDijkstraReact(); // пробую самостоятельно повторить алгоритм Дейкстры
   // DijkstraReact(); // Алгоритм Дейкстры
   // shortListDijkstraReact(); // Дейкстры > Вывести кратчайшие пути из точки А во все точки
