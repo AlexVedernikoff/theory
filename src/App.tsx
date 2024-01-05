@@ -49,7 +49,7 @@ const App: React.FC = () => {
   // test();
   // Mosbirzja();
 
-  ArrayMySortPolyfill(); // 1 полифил на array.sort()
+  // ArrayMySortPolyfill(); // 1 полифил на array.sort()
   // LabyrinthNative();       // 2 Задача про обход Лабиринта на чистом js
   // ReactCachingDecorator(); // 3 Декораторы
 
@@ -79,10 +79,10 @@ const App: React.FC = () => {
     <div className="App">
       <EightQueens />
       {/* <BinarySearchTree /> */}
-      {/* <BinarySearchTreeLitvinova /> */}
+      <BinarySearchTreeLitvinova />
       {/* <DragDrop_ver30 /> */}
       {/* <DragDrop_ver20 /> */}
-      <DragDropNative />
+      {/* <DragDropNative /> */}
       {/* <Maze /> Задача про обход Лабиринта */}
       <Buttons />
       <CounterEffector />

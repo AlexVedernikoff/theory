@@ -7,11 +7,15 @@ export const DragDropNative = () => {
       // Получаем объект с размерами и координатами
       const currentElementCoord = currentElement.getBoundingClientRect();
       // Находим вертикальную координату центра текущего элемента
-      const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+      const currentElementCenter =
+        currentElementCoord.y + currentElementCoord.height / 2;
 
       // Если курсор выше центра элемента, возвращаем текущий элемент
       // В ином случае — следующий DOM-элемент
-      const nextElement = cursorPosition < currentElementCenter ? currentElement : currentElement.nextElementSibling;
+      const nextElement =
+        cursorPosition < currentElementCenter
+          ? currentElement
+          : currentElement.nextElementSibling;
 
       return nextElement;
     };
@@ -31,7 +35,9 @@ export const DragDropNative = () => {
 
       const activeElement = tasksListElement.querySelector(`.${s.selected}`);
       const currentElement = evt.target;
-      const isMoveable = activeElement !== currentElement && currentElement.classList.contains(`${s.tasks__item}`);
+      const isMoveable =
+        activeElement !== currentElement &&
+        currentElement.classList.contains(`${s.tasks__item}`);
 
       if (!isMoveable) {
         return;
@@ -42,7 +48,10 @@ export const DragDropNative = () => {
       const nextElement = getNextElement(evt.clientY, currentElement);
 
       // Проверяем, нужно ли менять элементы местами
-      if ((nextElement && activeElement === nextElement.previousElementSibling) || activeElement === nextElement) {
+      if (
+        (nextElement && activeElement === nextElement.previousElementSibling) ||
+        activeElement === nextElement
+      ) {
         // Если нет, выходим из функции, чтобы избежать лишних изменений в DOM
         return;
       }
